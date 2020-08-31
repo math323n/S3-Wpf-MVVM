@@ -1,10 +1,52 @@
-﻿using System;
+﻿using S3_Wpf_MVVM.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
+using static S3_Wpf_MVVM.DataAccess.IRepositoryBase;
+
 namespace S3_Wpf_MVVM.DataAccess
 {
-    class RepositoryBase
+
+    public class RepositoryBase<T>: IRepositoryBase<T> where T : class
     {
+        protected static NorthwindContext context;
+
+        static RepositoryBase()
+        {
+            context = new NorthwindContext();
+        }
+
+        protected RepositoryBase() { }
+
+
+        public void Add(T t)
+        {
+            context.Set<T>().Add(t);
+            context.SaveChanges();
+        }
+
+        public void Delete(T t)
+        {
+            context.Set<T>().Remove(t);
+            context.SaveChanges();
+        }
+
+        public virtual IEnumerable<T> GetAll()
+        {
+            return context.Set<T>();
+        }
+
+        public virtual T GetBy(int id)
+        {
+            return context.Set<T>().Find(id);
+        }
+
+        public void Update(T t)
+        {
+            context.SaveChanges();
+        }
     }
+
 }
