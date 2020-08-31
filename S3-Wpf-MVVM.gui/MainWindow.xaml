@@ -6,7 +6,26 @@
         xmlns:local="clr-namespace:S3_Wpf_MVVM.gui"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <DockPanel>
+        <Grid Background="AliceBlue"
+              DockPanel.Dock="Top"
+              MinHeight="50">
+            <StackPanel Margin="10,5"
+                        Orientation="Horizontal">
+                <Button Uid="1"
+                        Content="Produkter"
+                        Width="100"
+                        Click="Navigation_Click" />
+                <Grid Width="10" />
+                <Button Uid="2"
+                        Content="Leverandører"
+                        Width="100"
+                        Click="Navigation_Click" />
+            </StackPanel>
+        </Grid>
+        <StatusBar DockPanel.Dock="Bottom"
+                   Background="Gray"
+                   Height="25" />
+        <UserControl x:Name="displayedUserControl" />
+    </DockPanel>
 </Window>

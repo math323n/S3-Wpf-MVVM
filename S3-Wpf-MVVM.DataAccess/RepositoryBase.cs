@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using static S3_Wpf_MVVM.DataAccess.IRepositoryBase;
-
 namespace S3_Wpf_MVVM.DataAccess
 {
 

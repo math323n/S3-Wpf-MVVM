@@ -20,9 +20,39 @@ namespace S3_Wpf_MVVM.gui
     /// </summary>
     public partial class MainWindow: Window
     {
+        ProductsControl productsControl;
+        SuppliersControl suppliersControl;
+
         public MainWindow()
         {
             InitializeComponent();
+            productsControl = new ProductsControl();
+            suppliersControl = new SuppliersControl();
+            Display(productsControl);
+        }
+
+        private void Navigation_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if(button != null)
+            {
+                switch(button.Uid)
+                {
+                    case "1":
+                        Display(productsControl);
+                        break;
+                    case "2":
+                        Display(suppliersControl);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void Display(UserControl userControl)
+        {
+            displayedUserControl.Content = userControl;
         }
     }
 }
