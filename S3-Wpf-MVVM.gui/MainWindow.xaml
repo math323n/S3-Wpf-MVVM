@@ -5,29 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450"
+        Height="600"
         Width="800">
     <DockPanel Margin="1">
-    <Menu DockPanel.Dock="Top">
+        <!--#region Menu Bar -->
+        <Menu DockPanel.Dock="Top">
             <Menu.Items>
                 <MenuItem Header="Products">
-                    <MenuItem Uid="1" Header="Show all"
+                    <MenuItem Uid="1"
+                              Header="Show all"
                               Click="Navigation_Click" />
+                    <MenuItem Header="Get by ID" />
+                    <MenuItem Header="Delete selected product" />
                 </MenuItem>
                 <MenuItem Header="Suppliers">
-                    <MenuItem  Uid="2" Header="Show all"
-                              Click="Navigation_Click" />
+                    <MenuItem  Uid="2"
+                               Header="Show all"
+                               Click="Navigation_Click" />
+                    <MenuItem Header="Get by ID" />
+                    <MenuItem Header="Delete selected supplier" />
                 </MenuItem>
             </Menu.Items>
         </Menu>
+        <!--#endregion-->
 
         <DockPanel>
             <StatusBar DockPanel.Dock="Bottom"
-                       Background="Gray"
-                       Height="25" />
+                       Background="White"
+                       Height="0" />
             <UserControl x:Name="displayedUserControl" />
         </DockPanel>
     </DockPanel>
-    
-
 </Window>

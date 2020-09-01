@@ -3,40 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:S3_Wpf_MVVM.gui"
              xmlns:viewModels="clr-namespace:S3_Wpf_MVVM.gui.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="800"
              Loaded="OnLoaded">
+    <!-- #region ViewModel -->
     <UserControl.DataContext>
         <viewModels:ProductsViewModel />
     </UserControl.DataContext>
     <Grid>
+        <!--#region ListView-->
         <ListView x:Name="listView_Orders"
                   Background="LightSlateGray"
                   ItemsSource="{Binding Products}"
                   SelectedItem="{Binding SelectedProduct}"
-                  Margin="0,196,464,9">
+                  Margin="0,267,1,1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Product"
                                     DisplayMemberBinding="{Binding ProductName}"
+                                    Width="180" />
+                    <GridViewColumn Header="Product"
+                                    DisplayMemberBinding="{Binding Category}"
+                                    Width="150" />
+                    <GridViewColumn Header="Product"
+                                    DisplayMemberBinding="{Binding QuantityPerUnit}"
                                     Width="150" />
                     <GridViewColumn Header="ID"
                                     DisplayMemberBinding="{Binding ProductID}"
                                     Width="50" />
-
+                    <GridViewColumn Header="Supplier"
+                                    DisplayMemberBinding="{Binding Supplier.CompanyName}"
+                                    Width="180" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock Background="OrangeRed"
-                   HorizontalAlignment="Left"
-                   Margin="10,14,0,0"
-                   Text="{Binding SelectedProduct.Supplier.CompanyName}"
-                   TextWrapping="Wrap"
-                   VerticalAlignment="Top"
-                   Width="200"
-                   Height="36" />
+
     </Grid>
 </UserControl>

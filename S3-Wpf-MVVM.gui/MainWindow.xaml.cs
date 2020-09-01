@@ -20,8 +20,8 @@ namespace S3_Wpf_MVVM.gui
     /// </summary>
     public partial class MainWindow: Window
     {
-        ProductsControl productsControl;
-        SuppliersControl suppliersControl;
+        readonly ProductsControl productsControl;
+        readonly SuppliersControl suppliersControl;
 
         public MainWindow()
         {
