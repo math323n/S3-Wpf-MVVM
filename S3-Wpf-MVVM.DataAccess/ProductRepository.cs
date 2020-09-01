@@ -15,11 +15,14 @@ namespace S3_Wpf_MVVM.DataAccess
 
         public override Product GetBy(int id)
         {
-            return context.Products
-                .Include(supplier)
-                .SingleOrDefault(p => p.ProductID == id);
+            return (Product)context.Products
+                .Include(supplier);
         }
 
+        /// <summary>
+        /// Gets all products & the associated supplier
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<Product> GetAll()
         {
             return context.Products.Include(supplier);
