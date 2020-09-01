@@ -1,4 +1,5 @@
-﻿using System;
+﻿using S3_Wpf_MVVM.gui.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,12 @@ namespace S3_Wpf_MVVM.gui
     /// </summary>
     public partial class SuppliersControl: UserControl
     {
+       
         public SuppliersControl()
         {
             InitializeComponent();
+            
         }
+       
     }
 }

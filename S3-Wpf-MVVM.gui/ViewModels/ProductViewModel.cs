@@ -10,11 +10,10 @@ using System.Text;
 
 namespace S3_Wpf_MVVM.gui.ViewModels
 {
-    public class ProductsViewModel: INotifyPropertyChanged
+    public class ProductsViewModel: ObservableObjects, INotifyPropertyChanged
     {
         #region Fields
-        // Event for property changed
-        public event PropertyChangedEventHandler PropertyChanged;
+      
         // Selected product
         private Product selectedProduct;
         #endregion
@@ -26,7 +25,7 @@ namespace S3_Wpf_MVVM.gui.ViewModels
         }
         #endregion
 
-
+        #region Collections
         public ObservableCollection<Product> Products { get; set; }
         public Product SelectedProduct
         {
@@ -41,17 +40,9 @@ namespace S3_Wpf_MVVM.gui.ViewModels
                 OnPropertyChanged(nameof(SelectedProduct));
             }
         }
-
+        #endregion
 
         #region Methods
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="propertyName"></param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Initializes all products
