@@ -3,29 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:S3_Wpf_MVVM.gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DockPanel>
-        <Grid Background="AliceBlue"
-              DockPanel.Dock="Top"
-              MinHeight="50">
-            <StackPanel Margin="10,5"
-                        Orientation="Horizontal">
-                <Button Uid="1"
-                        Content="Produkter"
-                        Width="100"
-                        Click="Navigation_Click" />
-                <Grid Width="10" />
-                <Button Uid="2"
-                        Content="Leverandører"
-                        Width="100"
-                        Click="Navigation_Click" />
-            </StackPanel>
-        </Grid>
-        <StatusBar DockPanel.Dock="Bottom"
-                   Background="Gray"
-                   Height="25" />
-        <UserControl x:Name="displayedUserControl" />
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <DockPanel Margin="1">
+    <Menu DockPanel.Dock="Top">
+            <Menu.Items>
+                <MenuItem Header="Products">
+                    <MenuItem Uid="1" Header="Show all"
+                              Click="Navigation_Click" />
+                </MenuItem>
+                <MenuItem Header="Suppliers">
+                    <MenuItem  Uid="2" Header="Show all"
+                              Click="Navigation_Click" />
+                </MenuItem>
+            </Menu.Items>
+        </Menu>
+
+        <DockPanel>
+            <StatusBar DockPanel.Dock="Bottom"
+                       Background="Gray"
+                       Height="25" />
+            <UserControl x:Name="displayedUserControl" />
+        </DockPanel>
     </DockPanel>
+    
+
 </Window>

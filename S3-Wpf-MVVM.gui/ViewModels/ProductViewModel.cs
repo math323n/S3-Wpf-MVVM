@@ -10,10 +10,9 @@ using System.Text;
 
 namespace S3_Wpf_MVVM.gui.ViewModels
 {
-    public class ProductsViewModel: ObservableObjects, INotifyPropertyChanged
+    public class ProductsViewModel: ViewModel, INotifyPropertyChanged
     {
         #region Fields
-      
         // Selected product
         private Product selectedProduct;
         #endregion

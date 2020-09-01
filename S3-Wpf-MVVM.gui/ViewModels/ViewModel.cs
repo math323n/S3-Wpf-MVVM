@@ -6,7 +6,7 @@ using System.Text;
 
 namespace S3_Wpf_MVVM.gui
 {
-    public class ObservableObjects: INotifyPropertyChanged
+    public class ViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

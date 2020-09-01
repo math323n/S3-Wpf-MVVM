@@ -33,8 +33,7 @@ namespace S3_Wpf_MVVM.gui
 
         private void Navigation_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            if(button != null)
+            if(sender is MenuItem button)
             {
                 switch(button.Uid)
                 {
@@ -54,5 +53,6 @@ namespace S3_Wpf_MVVM.gui
         {
             displayedUserControl.Content = userControl;
         }
+
     }
 }

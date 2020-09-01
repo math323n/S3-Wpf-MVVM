@@ -5,7 +5,7 @@ using System.Text;
 
 namespace S3_Wpf_MVVM.DataAccess
 {
-    class SupplierRepository: RepositoryBase<Supplier>
+    public class SupplierRepository: RepositoryBase<Supplier>
     {
         /// <summary>
         /// Gets all Supppliers
@@ -15,5 +15,11 @@ namespace S3_Wpf_MVVM.DataAccess
         {
             return context.Suppliers;
         }
+
+
+      /*  public override Supplier GetBy(int id)
+        {
+            return 
+        }*/
     }
 }

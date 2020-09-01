@@ -19,12 +19,20 @@ namespace S3_Wpf_MVVM.gui
     /// </summary>
     public partial class SuppliersControl: UserControl
     {
-       
+
+        SupplierViewModel suppliersViewModel;
+
         public SuppliersControl()
         {
             InitializeComponent();
-            
+            suppliersViewModel = this.DataContext as SupplierViewModel;
+
         }
-       
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            suppliersViewModel.Initialize();
+        }
     }
+
 }
