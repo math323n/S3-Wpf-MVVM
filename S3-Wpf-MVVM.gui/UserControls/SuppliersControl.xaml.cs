@@ -1,4 +1,5 @@
 ﻿using S3_Wpf_MVVM.gui.ViewModels;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,20 +20,34 @@ namespace S3_Wpf_MVVM.gui
     /// </summary>
     public partial class SuppliersControl: UserControl
     {
+        #region Fields
+        readonly SupplierViewModel suppliersViewModel;
+        private bool isLoaded;
+        #endregion
 
-        SupplierViewModel suppliersViewModel;
-
+        #region Constructor
         public SuppliersControl()
         {
             InitializeComponent();
-            suppliersViewModel = this.DataContext as SupplierViewModel;
-
+            suppliersViewModel = DataContext as SupplierViewModel;
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Is run when UserControl is loaded once
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            suppliersViewModel.Initialize();
-        }
-    }
+            if(!isLoaded)
+            {
+                isLoaded = true;
+                suppliersViewModel.Initialize();
 
+            }
+        }
+        #endregion
+    }
 }

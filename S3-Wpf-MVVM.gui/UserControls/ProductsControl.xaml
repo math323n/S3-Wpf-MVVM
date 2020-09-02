@@ -24,10 +24,10 @@
                     <GridViewColumn Header="Product"
                                     DisplayMemberBinding="{Binding ProductName}"
                                     Width="180" />
-                    <GridViewColumn Header="Product"
-                                    DisplayMemberBinding="{Binding Category}"
-                                    Width="150" />
-                    <GridViewColumn Header="Product"
+                    <GridViewColumn Header="Stock"
+                                    DisplayMemberBinding="{Binding UnitsInStock}"
+                                    Width="80" />
+                    <GridViewColumn Header="Quantity"
                                     DisplayMemberBinding="{Binding QuantityPerUnit}"
                                     Width="150" />
                     <GridViewColumn Header="ID"
@@ -39,6 +39,19 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <StackPanel>
+            <Button x:Name="DeleteButton"
+                    Background="LightBlue"
+                    Width="80"
+                    Margin="5"
+                    Height="40"
+                    Content="Delete"
+                    FontFamily="Myriad Pro"
+                    FontWeight="Bold"
+                    Command="{Binding DeleteCommand}"/>
+
+        </StackPanel>
+       
 
     </Grid>
 </UserControl>

@@ -27,5 +27,22 @@ namespace S3_Wpf_MVVM.DataAccess
         {
             return context.Products.Include(supplier);
         }
+        /// <summary>
+        /// Deletes selected product
+        /// </summary>
+        /// <param name="t"></param>
+        public override void Delete(Product t)
+        {
+            base.Delete(t);
+        }
+
+        /// <summary>
+        /// Adds a product
+        /// </summary>
+        /// <param name="t"></param>
+        public override void Add(Product t)
+        {
+            base.Add(t);
+        }
     }
 }

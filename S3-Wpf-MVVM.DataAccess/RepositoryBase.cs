@@ -28,7 +28,7 @@ namespace S3_Wpf_MVVM.DataAccess
         /// Adds item & saves context
         /// </summary>
         /// <param name="t"></param>
-        public void Add(T t)
+        public virtual void Add(T t)
         {
             context.Set<T>().Add(t);
             context.SaveChanges();
@@ -38,7 +38,7 @@ namespace S3_Wpf_MVVM.DataAccess
         /// Deletes item & saves context
         /// </summary>
         /// <param name="t"></param>
-        public void Delete(T t)
+        public virtual void Delete(T t)
         {
             context.Set<T>().Remove(t);
             context.SaveChanges();
@@ -67,7 +67,7 @@ namespace S3_Wpf_MVVM.DataAccess
         /// Saves context
         /// </summary>
         /// <param name="t"></param>
-        public void Update(T t)
+        public virtual void Update(T t)
         {
             context.SaveChanges();
         }

@@ -1,7 +1,9 @@
-﻿using S3_Wpf_MVVM.gui.ViewModels;
+﻿using S3_Wpf_MVVM.DataAccess;
+using S3_Wpf_MVVM.gui.ViewModels;
 
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace S3_Wpf_MVVM.gui
 {
@@ -10,17 +12,47 @@ namespace S3_Wpf_MVVM.gui
     /// </summary>
     public partial class ProductsControl: UserControl
     {
-        ProductsViewModel productsViewModel;
+        #region Fields
+        readonly ProductsViewModel productsViewModel;
+        private bool isLoaded;
+        #endregion
 
+      
+
+        #region Constructor
         public ProductsControl()
         {
             InitializeComponent();
-            productsViewModel = this.DataContext as ProductsViewModel;
+            productsViewModel = DataContext as ProductsViewModel;
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Is run when UserControl is loaded once
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            productsViewModel.Initialize();
+            if(!isLoaded)
+            {
+                isLoaded = true;
+                productsViewModel.Initialize();
+            }
+            
+        }
+
+
+
+
+
+
+        #endregion
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

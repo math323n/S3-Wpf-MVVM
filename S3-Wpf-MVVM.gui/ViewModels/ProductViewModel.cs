@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
 
 namespace S3_Wpf_MVVM.gui.ViewModels
 {
@@ -17,10 +18,34 @@ namespace S3_Wpf_MVVM.gui.ViewModels
         private Product selectedProduct;
         #endregion
 
+        public ICommand DeleteCommand
+        {
+            get;
+        }
+        public ICommand NewCommand
+        {
+            get;
+        }
+        public ICommand SaveCommand
+        {
+            get;
+        }
+        public ICommand GetByCommand
+        {
+            get;
+        }
+        public ICommand GetAllCommand
+        {
+            get;
+        }
+
         #region Product constructor
         public ProductsViewModel()
         {
+          
             Products = new ObservableCollection<Product>();
+            DeleteCommand = new RelayCommand(DeleteProduct);
+
         }
         #endregion
 
@@ -59,6 +84,12 @@ namespace S3_Wpf_MVVM.gui.ViewModels
             ProductRepository productRepository = new ProductRepository();
             IEnumerable<Product> products = productRepository.GetAll();
             Products.ReplaceWith(products);
+        }
+
+        private void DeleteProduct()
+        {
+            ProductRepository productRepository = new ProductRepository();
+            productRepository.Delete(SelectedProduct);
         }
         #endregion
     }
