@@ -30,7 +30,7 @@
                         Height="40"
                         FontFamily="Myriad Pro"
                         FontWeight="Bold"
-                        Click="addNewButton_Click"
+                        Command="{Binding NewCommand}"
                         Content="New">
                 </Button>
                 <Button x:Name="deleteButton"

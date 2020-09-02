@@ -94,11 +94,11 @@ namespace S3_Wpf_MVVM.gui.ViewModels
             productRepository.Delete(SelectedProduct);
         
         }
-        private void AddProduct(Product newProduct)
+        private void AddProduct()
         {
             ProductRepository productRepository = new ProductRepository();
-            productRepository.Add(newProduct);
-            
+            productRepository.Add(SelectedProduct);
+         
         }
         #endregion
     }
