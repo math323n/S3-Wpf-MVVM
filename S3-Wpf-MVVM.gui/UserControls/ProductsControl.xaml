@@ -13,17 +13,76 @@
         <viewModels:ProductsViewModel />
     </UserControl.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="450"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="addNewButton"
+                        Background="LightBlue"
+                        Width="80"
+                        Margin="5"
+                        Height="40"
+                        FontFamily="Myriad Pro"
+                        FontWeight="Bold"
+                        Click="addNewButton_Click"
+                        Content="New">
+                </Button>
+                <Button x:Name="deleteButton"
+                        Background="LightBlue"
+                        Width="80"
+                        Margin="5"
+                        Height="40"
+                        FontFamily="Myriad Pro"
+                        FontWeight="Bold"
+                        Command="{Binding DeleteCommand}"
+                        Content="Delete">
+                   
+                </Button>
+                <Button x:Name="updateButton"
+                        Background="LightBlue"
+                        Width="80"
+                        Margin="5"
+                        Height="40"
+                        FontFamily="Myriad Pro"
+                        FontWeight="Bold"
+                        Command="{Binding DeleteCommand}" 
+                        Content="Refresh">
+                   
+                </Button>
+                <Button x:Name="editButton"
+                        Background="LightBlue"
+                        Width="80"
+                        Margin="5"
+                        Height="40"
+                        FontFamily="Myriad Pro"
+                        FontWeight="Bold"
+                        Command="{Binding DeleteCommand}"
+                        Content="...">
+                    
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
         <!--#region ListView-->
         <ListView x:Name="listView_Orders"
+                  Grid.ColumnSpan="1"
+                  Grid.Row="1"
+                  Grid.RowSpan="1"
                   Background="LightSlateGray"
                   ItemsSource="{Binding Products}"
                   SelectedItem="{Binding SelectedProduct}"
-                  Margin="0,267,1,1">
+                 >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Product"
                                     DisplayMemberBinding="{Binding ProductName}"
-                                    Width="180" />
+                                    Width="150" />
                     <GridViewColumn Header="Stock"
                                     DisplayMemberBinding="{Binding UnitsInStock}"
                                     Width="80" />
@@ -39,19 +98,20 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel>
-            <Button x:Name="DeleteButton"
-                    Background="LightBlue"
-                    Width="80"
-                    Margin="5"
-                    Height="40"
-                    Content="Delete"
-                    FontFamily="Myriad Pro"
-                    FontWeight="Bold"
-                    Command="{Binding DeleteCommand}"/>
+        <StackPanel Margin="0,0,222,0"
+                    HorizontalAlignment="Right"
+                    Grid.Column="1 ">
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="inputName"
+                         Text="Product name:" />
+                <TextBox  x:Name="inputStock"
+                          Text="Stock:" />
+                <TextBox  x:Name="inputQuantity"
+                          Text="QuantityPerUnit" />
 
+            </StackPanel>
+            
         </StackPanel>
-       
 
     </Grid>
 </UserControl>

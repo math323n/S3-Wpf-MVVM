@@ -15,6 +15,7 @@ namespace S3_Wpf_MVVM.gui.ViewModels
     {
         #region Fields
         // Selected product
+        private Product newProduct = new Product();
         private Product selectedProduct;
         #endregion
 
@@ -45,6 +46,7 @@ namespace S3_Wpf_MVVM.gui.ViewModels
           
             Products = new ObservableCollection<Product>();
             DeleteCommand = new RelayCommand(DeleteProduct);
+            NewCommand = new RelayCommand(AddProduct);
 
         }
         #endregion
@@ -90,6 +92,13 @@ namespace S3_Wpf_MVVM.gui.ViewModels
         {
             ProductRepository productRepository = new ProductRepository();
             productRepository.Delete(SelectedProduct);
+        
+        }
+        private void AddProduct(Product newProduct)
+        {
+            ProductRepository productRepository = new ProductRepository();
+            productRepository.Add(newProduct);
+            
         }
         #endregion
     }

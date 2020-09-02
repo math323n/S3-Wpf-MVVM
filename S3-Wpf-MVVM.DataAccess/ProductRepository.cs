@@ -15,8 +15,9 @@ namespace S3_Wpf_MVVM.DataAccess
 
         public override Product GetBy(int id)
         {
-            return (Product)context.Products
-                .Include(supplier);
+            return context.Products
+                .Include(supplier)
+                .SingleOrDefault(p => p.ProductID == id);
         }
 
         /// <summary>
