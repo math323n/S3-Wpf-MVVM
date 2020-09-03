@@ -51,9 +51,8 @@
                         Height="40"
                         FontFamily="Myriad Pro"
                         FontWeight="Bold"
-                        Command="{Binding DeleteCommand}" 
+                        Command="{Binding DeleteCommand}"
                         Content="Refresh">
-                   
                 </Button>
                 <Button x:Name="editButton"
                         Background="LightBlue"
@@ -108,7 +107,6 @@
                           Text="Stock:" />
                 <TextBox  x:Name="inputQuantity"
                           Text="QuantityPerUnit" />
-
             </StackPanel>
             
         </StackPanel>
